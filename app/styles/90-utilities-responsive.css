@@ -31,8 +31,7 @@
   .stay-intro,
   .suite-cards,
   .newsletter-block,
-  .social-row,
-  .gem-footer {
+  .social-row {
     min-height: 86svh;
   }
 
@@ -85,13 +84,14 @@
   }
 
   .hero-content h1 {
-    font-size: clamp(3rem, 12vw, 5.76rem);
+    font-size: clamp(3.6rem, 14.5vw, 6.9rem);
   }
 
   .hero-content p {
     margin: 0.78rem auto 0;
-    max-width: 36ch;
-    font-size: 1.3rem;
+    max-width: 33ch;
+    font-size: 1.56rem;
+    line-height: 1.5;
   }
 
   .top-mini-nav {
@@ -144,6 +144,19 @@
     width: 100%;
   }
 
+  .feature-copy h2 {
+    font-size: clamp(3rem, 12.5vw, 5rem);
+    line-height: 0.96;
+    white-space: normal;
+  }
+
+  .feature-copy p {
+    margin-top: 0.95rem;
+    max-width: 30ch;
+    font-size: 1.38rem;
+    line-height: 1.58;
+  }
+
   .outline-band {
     padding: 4.2rem 0;
   }
@@ -152,12 +165,41 @@
     min-height: 86svh;
   }
 
+  .full-banner h2 {
+    font-size: clamp(3rem, 11.2vw, 5rem);
+    line-height: 0.94;
+  }
+
+  .full-banner p {
+    max-width: 34ch;
+    font-size: 1.34rem;
+    line-height: 1.56;
+  }
+
   .menu-split {
     padding: 3.8rem 1rem;
   }
 
+  .section-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.17em;
+  }
+
+  .menu-list-wrap li {
+    font-size: clamp(1.7rem, 7.2vw, 2.7rem);
+  }
+
   .stay-intro {
     padding: 3.4rem 1rem 2.8rem;
+  }
+
+  .stay-intro h2 {
+    font-size: clamp(2.9rem, 11vw, 5rem);
+  }
+
+  .stay-intro p {
+    font-size: 1rem;
+    letter-spacing: 0.18em;
   }
 
   .suite-cards {
@@ -170,6 +212,15 @@
   .suite-cards-square {
     width: calc(100% - 1.2rem) !important;
     grid-template-columns: minmax(0, 420px) !important;
+  }
+
+  .suite-card h3 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .suite-card p {
+    font-size: 1.12rem;
+    line-height: 1.45;
   }
 
   .social-grid {
@@ -199,14 +250,34 @@
     padding: 4rem 1rem 3.2rem;
   }
 
+  .social-title h2 {
+    font-size: clamp(2.8rem, 12vw, 4.8rem);
+  }
+
   .gem-footer {
+    min-height: auto;
     margin-top: 1rem;
-    padding: 3rem 1rem 2.4rem;
+    padding: 2.3rem 1rem 1.8rem;
+    gap: 1rem;
     text-align: center;
+  }
+
+  .gem-footer a {
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .footer-logo {
+    width: clamp(7.2rem, 32vw, 10.5rem);
   }
 
   .bottom-note {
     padding: 1rem 0.9rem 1.35rem;
+  }
+
+  .bottom-note p {
+    font-size: 1.02rem;
+    line-height: 1.62;
   }
 
   .gem-footer > div {
@@ -216,6 +287,7 @@
   .gem-footer > div:first-child,
   .gem-footer > div:last-child {
     justify-self: auto;
+    justify-items: center;
     text-align: center;
   }
 }
