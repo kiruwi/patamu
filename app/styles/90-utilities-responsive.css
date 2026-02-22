@@ -35,6 +35,10 @@
     min-height: 86svh;
   }
 
+  .outline-band {
+    min-height: auto;
+  }
+
   .hero-wrap,
   .menu-split,
   .social-row,
@@ -159,7 +163,25 @@
   }
 
   .outline-band {
-    padding: 5rem 0 4.2rem;
+    margin-block: 1rem;
+    padding: 1.1rem 0;
+  }
+
+  .hero-wrap + .outline-band {
+    margin-top: 2.2rem;
+  }
+
+  .outline-band p {
+    font-size: clamp(2.7rem, 9vw, 4.2rem);
+    line-height: 0.9;
+  }
+
+  .outline-band-dual {
+    gap: 0.24rem;
+  }
+
+  .outline-band-dual .outline-bottom {
+    margin-top: 0;
   }
 
   .full-banner {
