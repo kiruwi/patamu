@@ -129,7 +129,7 @@ export default function HomeAnimations() {
     const suitesTrack = suitesSection?.querySelector<HTMLElement>(".suite-track");
 
     if (suitesSection && suitesTrack) {
-      const suitesStart = isMobileViewport ? "top top" : "top top";
+      const suitesStart = isMobileViewport ? "center center" : "top top";
       const maxHorizontalShift = () =>
         Math.max(0, suitesTrack.scrollWidth - suitesSection.clientWidth);
 
