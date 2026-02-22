@@ -1,0 +1,131 @@
+.newsletter-block {
+  display: grid;
+  align-items: center;
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 2;
+  width: min(980px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newsletter-content h2 {
+  margin: 0;
+  font-family: var(--font-display), "Times New Roman", serif;
+  font-size: clamp(2.4rem, 7.2vw, 4rem);
+  white-space: nowrap;
+  line-height: 1.04;
+  font-weight: 500;
+}
+
+.newsletter-form {
+  margin: 0.7rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 0.35rem;
+  max-width: 400px;
+}
+
+.newsletter-form input,
+.newsletter-form button {
+  background: rgba(15, 17, 23, 0.68);
+  color: #f6eedf;
+  height: 2rem;
+  padding: 0 0.58rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.newsletter-form button {
+  background: rgba(183, 145, 96, 0.9);
+  color: #0d0f14;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.social-row {
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.social-title h2 {
+  margin: 0;
+  font-family: var(--font-display), "Times New Roman", serif;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 0.9;
+  font-weight: 500;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(980px, 100%);
+  justify-self: end;
+  gap: 0.4rem;
+}
+
+.social-grid > div {
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+}
+
+.gem-footer {
+  margin-top: 1rem;
+  padding: 2rem 1rem 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.gem-footer > div {
+  display: grid;
+  align-content: start;
+  gap: 0.26rem;
+}
+
+.gem-footer > div:first-child {
+  justify-self: end;
+  justify-items: end;
+  text-align: right;
+}
+
+.gem-footer a {
+  font-size: 1rem;
+  color: #dfcfb8;
+  line-height: 1.45;
+}
+
+.footer-center {
+  justify-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  width: clamp(6.4rem, 10vw, 8.6rem);
+  height: auto;
+}
+
+.footer-center div {
+  margin-top: 0.24rem;
+  color: var(--gold);
+  display: flex;
+  gap: 0.42rem;
+}
+
+.bottom-note {
+  padding: 0.55rem 0.7rem 1rem;
+}
+
+.bottom-note p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}

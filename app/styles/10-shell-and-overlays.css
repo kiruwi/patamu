@@ -1,0 +1,50 @@
+.hero-wrap,
+.outline-band,
+.feature-row,
+.full-banner,
+.menu-split,
+.stay-intro,
+.suite-cards,
+.newsletter-block,
+.social-row,
+.gem-footer {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.gem-shell {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  margin-left: calc(50% - 50vw);
+  background:
+    radial-gradient(120% 60% at 100% 0%, rgba(164, 124, 80, 0.13), transparent 45%),
+    linear-gradient(180deg, #090b10 0%, #090b10 100%);
+  overflow-x: clip;
+}
+
+.hero-image,
+.feature-chip,
+.full-banner-media,
+.menu-photo,
+.suite-card,
+.newsletter-block,
+.social-grid > div {
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-image::before,
+.feature-chip::before,
+.full-banner-media::before,
+.menu-photo::before,
+.suite-card::before,
+.newsletter-block::before,
+.social-grid > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 13, 0.08), rgba(8, 9, 13, 0.74));
+}
