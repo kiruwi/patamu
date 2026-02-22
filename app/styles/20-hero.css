@@ -286,6 +286,7 @@
   font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(2.5rem, 10vw, 4.8rem);
   font-weight: 500;
+  color: #ffffff;
 }
 
 .hero-content h1 span {

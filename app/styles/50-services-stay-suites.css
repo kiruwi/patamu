@@ -34,6 +34,7 @@
   font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(1.35rem, 3.2vw, 2rem);
   letter-spacing: 0.02em;
+  color: #ffffff;
 }
 
 .menu-photo {
@@ -56,6 +57,7 @@
   font-size: clamp(2.4rem, 7.8vw, 4.5rem);
   line-height: 0.92;
   font-weight: 500;
+  color: #ffffff;
 }
 
 .stay-intro p {
