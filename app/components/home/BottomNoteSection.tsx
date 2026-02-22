@@ -1,11 +1,16 @@
-type BottomNoteSectionProps = {
-  points: string[];
-};
+const getCurrentYear = () => new Date().getFullYear();
 
-export default function BottomNoteSection({ points }: BottomNoteSectionProps) {
+export default function BottomNoteSection() {
+  const currentYear = getCurrentYear();
+
   return (
-    <section className="bottom-note reveal">
-      <p>Bush hot lunch highlights: {points.join(" • ")}</p>
+    <section className="bottom-note">
+      <p>
+        Copyright © {currentYear} Patamu Restaurants | Design by{" "}
+        <a href="https://iancheruiyot.work/" target="_blank" rel="noreferrer">
+          Ian K Cheruiyot
+        </a>
+      </p>
     </section>
   );
 }

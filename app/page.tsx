@@ -13,8 +13,6 @@ import {
   SuitesSection,
 } from "./components/home";
 import {
-  bushLunchPoints,
-  lowerMarqueeText,
   serviceItems,
   suiteCards,
   topMarqueeText,
@@ -39,15 +37,13 @@ export default function Home() {
 
       <SuitesSection items={suiteCards} />
 
-      <DualOutlineBand topText={lowerMarqueeText} bottomText={lowerMarqueeText} alt />
-
       <NewsletterSection />
 
       <SocialSection />
 
       <SiteFooter />
 
-      <BottomNoteSection points={bushLunchPoints} />
+      <BottomNoteSection />
     </div>
   );
 }

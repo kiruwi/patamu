@@ -13,6 +13,8 @@ export default function HomeAnimations() {
     const outlineScrub = prefersReducedMotion ? 0.55 : 0.9;
     const bannerTextDrift = prefersReducedMotion ? 28 : 92;
     const bannerTextScrub = prefersReducedMotion ? 0.6 : 1.05;
+    const servicesSplitDistance = prefersReducedMotion ? 26 : 130;
+    const servicesVerticalShift = prefersReducedMotion ? 8 : 28;
 
     const intro = gsap.timeline({
       defaults: { ease: prefersReducedMotion ? "power1.out" : "power3.out" },
@@ -46,6 +48,10 @@ export default function HomeAnimations() {
     );
 
     gsap.utils.toArray<HTMLElement>(".reveal").forEach((section) => {
+      if (section.matches(".menu-split, .stay-intro, .suite-cards-scroll")) {
+        return;
+      }
+
       gsap.from(section, {
         autoAlpha: 0,
         y: prefersReducedMotion ? 0 : 30,
@@ -58,6 +64,98 @@ export default function HomeAnimations() {
         },
       });
     });
+
+    // Services transition:
+    // as the section scrolls out, left and right columns separate and fade,
+    // while the following stay-intro fades in.
+    const servicesSection = document.querySelector<HTMLElement>(".menu-split");
+    const servicesList = servicesSection?.querySelector<HTMLElement>(".menu-list-wrap");
+    const servicesImage = servicesSection?.querySelector<HTMLElement>(".menu-photo");
+    const stayIntro = document.querySelector<HTMLElement>(".stay-intro");
+
+    if (servicesSection && servicesList && servicesImage && stayIntro) {
+      gsap.set(stayIntro, {
+        autoAlpha: 0,
+        y: servicesVerticalShift,
+      });
+
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top top",
+            end: prefersReducedMotion ? "+=40%" : "+=75%",
+            pin: true,
+            pinSpacing: false,
+            scrub: prefersReducedMotion ? 0.4 : 0.85,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        })
+        .to(
+          servicesList,
+          {
+            x: -servicesSplitDistance,
+            y: -servicesVerticalShift,
+            autoAlpha: 0,
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          servicesImage,
+          {
+            x: servicesSplitDistance,
+            y: servicesVerticalShift,
+            autoAlpha: 0,
+            ease: "none",
+          },
+          0,
+        )
+        .to(
+          stayIntro,
+          {
+            autoAlpha: 1,
+            y: 0,
+            ease: "none",
+          },
+          0.15,
+        );
+    }
+
+    // Suites gallery: pin section and drive a right-to-left horizontal track.
+    const suitesSection = document.querySelector<HTMLElement>(".suite-cards-scroll");
+    const suitesTrack = suitesSection?.querySelector<HTMLElement>(".suite-track");
+
+    if (suitesSection && suitesTrack) {
+      const maxHorizontalShift = () =>
+        Math.max(0, suitesTrack.scrollWidth - suitesSection.clientWidth);
+
+      const getScrollDistance = () => {
+        const shift = maxHorizontalShift();
+        return shift > 0 ? shift + window.innerHeight * 0.35 : 0;
+      };
+
+      gsap.set(suitesTrack, {
+        x: 0,
+      });
+
+      if (maxHorizontalShift() > 0) {
+        gsap.to(suitesTrack, {
+          x: () => -maxHorizontalShift(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: suitesSection,
+            start: "top top",
+            end: () => `+=${getScrollDistance()}`,
+            pin: true,
+            scrub: prefersReducedMotion ? 0.45 : 0.95,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+    }
 
     // Keep heavier parallax off for reduced-motion users.
     if (!prefersReducedMotion) {

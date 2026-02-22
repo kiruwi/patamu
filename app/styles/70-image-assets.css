@@ -31,16 +31,40 @@
     url("https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1000&q=80");
 }
 
-.image-room-one {
+.image-suite-one {
   background-image:
     linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
-    url("/images/room1.webp");
+    url("/images/suite1.webp");
 }
 
-.image-room-two {
+.image-suite-two {
   background-image:
     linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
-    url("/images/room2.webp");
+    url("/images/suite2.webp");
+}
+
+.image-suite-three {
+  background-image:
+    linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
+    url("/images/suite3.webp");
+}
+
+.image-suite-four {
+  background-image:
+    linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
+    url("/images/suite4.webp");
+}
+
+.image-suite-five {
+  background-image:
+    linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
+    url("/images/suite5.webp");
+}
+
+.image-suite-six {
+  background-image:
+    linear-gradient(180deg, rgba(9, 10, 14, 0.08), rgba(9, 10, 14, 0.76)),
+    url("/images/suite6.webp");
 }
 
 .image-chef {
@@ -49,20 +73,26 @@
     url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=80");
 }
 
+.image-plan {
+  background-image:
+    linear-gradient(180deg, rgba(9, 10, 14, 0.14), rgba(9, 10, 14, 0.76)),
+    url("/images/plan.webp");
+}
+
 .image-social-two {
   background-image:
     linear-gradient(180deg, rgba(9, 10, 14, 0.06), rgba(9, 10, 14, 0.56)),
-    url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80");
+    url("/images/insta1.webp");
 }
 
 .image-social-three {
   background-image:
     linear-gradient(180deg, rgba(9, 10, 14, 0.06), rgba(9, 10, 14, 0.56)),
-    url("https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=600&q=80");
+    url("/images/insta2.webp");
 }
 
 .image-social-four {
   background-image:
     linear-gradient(180deg, rgba(9, 10, 14, 0.06), rgba(9, 10, 14, 0.56)),
-    url("https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=600&q=80");
+    url("/images/insta3.webp");
 }

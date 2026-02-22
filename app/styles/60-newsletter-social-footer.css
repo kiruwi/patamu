@@ -121,6 +121,7 @@
 
 .bottom-note {
   padding: 0.55rem 0.7rem 1rem;
+  text-align: center;
 }
 
 .bottom-note p {
@@ -128,4 +129,8 @@
   color: #ffffff;
   font-size: 0.82rem;
   line-height: 1.5;
+}
+
+.bottom-note a {
+  color: inherit;
 }

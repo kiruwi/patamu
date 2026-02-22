@@ -10,14 +10,22 @@ export const serviceItems = [
 
 export const suiteCards = [
   {
-    title: "Karatu Tower Suite",
-    subtitle: "Clean, well-maintained spaces",
-    imageClass: "image-room-one",
+    imageClass: "image-suite-one",
   },
   {
-    title: "Garden View Suite",
-    subtitle: "Comfortable beds",
-    imageClass: "image-room-two",
+    imageClass: "image-suite-two",
+  },
+  {
+    imageClass: "image-suite-three",
+  },
+  {
+    imageClass: "image-suite-four",
+  },
+  {
+    imageClass: "image-suite-five",
+  },
+  {
+    imageClass: "image-suite-six",
   },
 ];
 
@@ -30,6 +38,3 @@ export const bushLunchPoints = [
 
 export const topMarqueeText =
   "Authentic Cuisine • Safari Dining • Bush Lunches • Accommodation • Authentic Cuisine •";
-
-export const lowerMarqueeText =
-  "Google Reviews • Tour Operator Friendly • Business and Leisure Ready • Google Reviews •";

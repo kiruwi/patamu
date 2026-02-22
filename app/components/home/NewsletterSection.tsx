@@ -1,6 +1,6 @@
 export default function NewsletterSection() {
   return (
-    <section className="newsletter-block image-chef reveal" id="contact">
+    <section className="newsletter-block image-plan reveal" id="contact">
       <div className="newsletter-content">
         <h2>Plan your Patamu experience</h2>
         <form className="newsletter-form" action="#" method="post">

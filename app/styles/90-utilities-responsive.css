@@ -233,24 +233,16 @@
   }
 
   .suite-cards {
-    width: calc(100% - 1.2rem);
-    grid-template-columns: minmax(0, 420px);
-    justify-content: center;
     padding: 1.8rem 0 4rem;
   }
 
-  .suite-cards-square {
-    width: calc(100% - 1.2rem) !important;
-    grid-template-columns: minmax(0, 420px) !important;
+  .suite-track {
+    gap: 0.9rem;
+    padding-inline: 0.6rem;
   }
 
-  .suite-card h3 {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-
-  .suite-card p {
-    font-size: 0.9rem;
-    line-height: 1.45;
+  .suite-card {
+    flex-basis: min(86vw, 420px);
   }
 
   .social-grid {
