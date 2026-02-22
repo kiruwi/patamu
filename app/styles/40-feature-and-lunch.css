@@ -3,8 +3,9 @@
   grid-template-columns: 180px 1fr 180px;
   gap: 0.95rem;
   align-items: center;
+  min-height: auto;
   width: min(1380px, calc(100% - 7rem));
-  margin: 0 auto;
+  margin: 0 auto 7.2rem;
   padding: 3rem 1rem;
 }
 

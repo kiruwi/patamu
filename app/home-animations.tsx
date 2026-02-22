@@ -11,6 +11,8 @@ export default function HomeAnimations() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const outlineDrift = prefersReducedMotion ? 10 : 18;
     const outlineScrub = prefersReducedMotion ? 0.55 : 0.9;
+    const bannerTextDrift = prefersReducedMotion ? 28 : 92;
+    const bannerTextScrub = prefersReducedMotion ? 0.6 : 1.05;
 
     const intro = gsap.timeline({
       defaults: { ease: prefersReducedMotion ? "power1.out" : "power3.out" },
@@ -59,25 +61,70 @@ export default function HomeAnimations() {
 
     // Keep heavier parallax off for reduced-motion users.
     if (!prefersReducedMotion) {
-      const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
-      if (diningMedia) {
-        gsap.set(diningMedia, {
-          y: -70,
-          scale: 1.22,
+      // Feature-side chips keep the pronounced asymmetric parallax.
+      const featureLeft = document.querySelector<HTMLElement>(".feature-chip.image-sign");
+      if (featureLeft) {
+        gsap.set(featureLeft, {
+          y: 60,
+          scale: 1.16,
         });
 
-        gsap.to(diningMedia, {
-          y: 70,
+        gsap.to(featureLeft, {
+          y: -180,
           ease: "none",
           scrollTrigger: {
-            trigger: ".full-banner",
+            trigger: ".feature-row",
             start: "top bottom",
             end: "bottom top",
-            scrub: 1.15,
+            scrub: 1.5,
             invalidateOnRefresh: true,
           },
         });
       }
+
+      const featureRight = document.querySelector<HTMLElement>(".feature-chip.image-lamp");
+      if (featureRight) {
+        gsap.set(featureRight, {
+          y: 120,
+          scale: 1.2,
+        });
+
+        gsap.to(featureRight, {
+          y: -260,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".feature-row",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.55,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+
+    }
+
+    // Lunch section: keep image static; move text over it.
+    const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
+    if (diningMedia) {
+      gsap.set(diningMedia, { clearProps: "transform" });
+    }
+
+    const diningCopy = document.querySelector<HTMLElement>(".full-banner-content");
+    if (diningCopy) {
+      gsap.set(diningCopy, { y: bannerTextDrift * 0.55 });
+
+      gsap.to(diningCopy, {
+        y: -bannerTextDrift,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".full-banner",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: bannerTextScrub,
+          invalidateOnRefresh: true,
+        },
+      });
     }
 
     // Dual marquee motion for each outline band:
