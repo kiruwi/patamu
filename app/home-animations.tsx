@@ -8,24 +8,24 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function HomeAnimations() {
   useGSAP(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const intro = gsap.timeline({
+      defaults: { ease: prefersReducedMotion ? "power1.out" : "power3.out" },
+    });
 
     intro.from(".hero-image", {
       autoAlpha: 0,
-      y: 20,
-      duration: 0.7,
+      y: prefersReducedMotion ? 0 : 20,
+      duration: prefersReducedMotion ? 0.42 : 0.7,
     });
 
     intro.from(
       ".hero-content h1, .hero-content p:not(.hero-symbols), .hero-symbols",
       {
         autoAlpha: 0,
-        y: 18,
-        duration: 0.52,
+        y: prefersReducedMotion ? 0 : 18,
+        duration: prefersReducedMotion ? 0.36 : 0.52,
         stagger: 0.08,
       },
       "-=0.3",
@@ -36,7 +36,7 @@ export default function HomeAnimations() {
       ".top-mini-nav",
       {
         autoAlpha: 0,
-        duration: 0.45,
+        duration: prefersReducedMotion ? 0.32 : 0.45,
       },
       "-=0.25",
     );
@@ -44,8 +44,8 @@ export default function HomeAnimations() {
     gsap.utils.toArray<HTMLElement>(".reveal").forEach((section) => {
       gsap.from(section, {
         autoAlpha: 0,
-        y: 30,
-        duration: 0.7,
+        y: prefersReducedMotion ? 0 : 30,
+        duration: prefersReducedMotion ? 0.45 : 0.7,
         ease: "power3.out",
         scrollTrigger: {
           trigger: section,
@@ -54,6 +54,11 @@ export default function HomeAnimations() {
         },
       });
     });
+
+    if (prefersReducedMotion) {
+      ScrollTrigger.refresh();
+      return;
+    }
 
     // Stable transform-based parallax for the Lunch in the Wild media layer.
     const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
@@ -108,6 +113,8 @@ export default function HomeAnimations() {
         },
       });
     });
+
+    ScrollTrigger.refresh();
   });
 
   return null;

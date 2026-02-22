@@ -44,7 +44,8 @@
 
   .hero-wrap {
     position: relative;
-    min-height: clamp(430px, 84svh, 620px);
+    min-height: 100svh;
+    min-height: 100dvh;
   }
 
   .site-logo--hero {
@@ -54,7 +55,7 @@
   }
 
   .site-logo__image {
-    width: clamp(5.5rem, 29vw, 8.2rem);
+    width: clamp(4.2rem, 22vw, 6.4rem);
   }
 
   .hero-image {
@@ -133,7 +134,7 @@
   .feature-row {
     width: calc(100% - 1.2rem);
     grid-template-columns: 1fr;
-    padding: 4rem 1rem 3.6rem;
+    padding: 4.8rem 1rem 4rem;
   }
 
   .feature-row > .feature-chip {
@@ -151,14 +152,14 @@
   }
 
   .feature-copy p {
-    margin-top: 0.95rem;
+    margin-top: 1.3rem;
     max-width: 30ch;
     font-size: 1.38rem;
     line-height: 1.58;
   }
 
   .outline-band {
-    padding: 4.2rem 0;
+    padding: 5rem 0 4.2rem;
   }
 
   .full-banner {
