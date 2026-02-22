@@ -9,6 +9,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function HomeAnimations() {
   useGSAP(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const outlineDrift = prefersReducedMotion ? 10 : 18;
+    const outlineScrub = prefersReducedMotion ? 0.55 : 0.9;
 
     const intro = gsap.timeline({
       defaults: { ease: prefersReducedMotion ? "power1.out" : "power3.out" },
@@ -55,30 +57,27 @@ export default function HomeAnimations() {
       });
     });
 
-    if (prefersReducedMotion) {
-      ScrollTrigger.refresh();
-      return;
-    }
+    // Keep heavier parallax off for reduced-motion users.
+    if (!prefersReducedMotion) {
+      const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
+      if (diningMedia) {
+        gsap.set(diningMedia, {
+          y: -70,
+          scale: 1.22,
+        });
 
-    // Stable transform-based parallax for the Lunch in the Wild media layer.
-    const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
-    if (diningMedia) {
-      gsap.set(diningMedia, {
-        y: -70,
-        scale: 1.22,
-      });
-
-      gsap.to(diningMedia, {
-        y: 70,
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".full-banner",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1.15,
-          invalidateOnRefresh: true,
-        },
-      });
+        gsap.to(diningMedia, {
+          y: 70,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".full-banner",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.15,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
     }
 
     // Dual marquee motion for each outline band:
@@ -92,29 +91,37 @@ export default function HomeAnimations() {
       }
 
       gsap.to(top, {
-        xPercent: -18,
+        xPercent: -outlineDrift,
         ease: "none",
         scrollTrigger: {
           trigger: band,
           start: "top bottom",
           end: "bottom top",
-          scrub: 0.9,
+          scrub: outlineScrub,
+          invalidateOnRefresh: true,
         },
       });
 
       gsap.to(bottom, {
-        xPercent: 18,
+        xPercent: outlineDrift,
         ease: "none",
         scrollTrigger: {
           trigger: band,
           start: "top bottom",
           end: "bottom top",
-          scrub: 0.9,
+          scrub: outlineScrub,
+          invalidateOnRefresh: true,
         },
       });
     });
 
+    const refreshTriggers = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refreshTriggers);
     ScrollTrigger.refresh();
+
+    return () => {
+      window.removeEventListener("load", refreshTriggers);
+    };
   });
 
   return null;
