@@ -210,6 +210,10 @@
     padding: 3.8rem 1rem;
   }
 
+  .menu-photo {
+    display: none;
+  }
+
   .section-label {
     font-size: 0.95rem;
     letter-spacing: 0.17em;
@@ -233,6 +237,7 @@
   }
 
   .suite-cards {
+    min-height: auto;
     padding: 1.8rem 0 4rem;
   }
 
