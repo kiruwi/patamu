@@ -20,7 +20,10 @@
     border-inline: 0;
   }
 
-  .hero-wrap,
+  .hero-wrap {
+    min-height: auto;
+  }
+
   .outline-band,
   .feature-row,
   .full-banner,
@@ -30,7 +33,7 @@
   .newsletter-block,
   .social-row,
   .gem-footer {
-    min-height: auto;
+    min-height: 86svh;
   }
 
   .hero-wrap,
@@ -130,7 +133,7 @@
   .feature-row {
     width: calc(100% - 1.2rem);
     grid-template-columns: 1fr;
-    padding: 1.5rem 0.5rem;
+    padding: 4rem 1rem 3.6rem;
   }
 
   .feature-row > .feature-chip {
@@ -142,26 +145,26 @@
   }
 
   .outline-band {
-    padding: 1.8rem 0;
+    padding: 4.2rem 0;
   }
 
   .full-banner {
-    min-height: 220px;
+    min-height: 86svh;
   }
 
   .menu-split {
-    padding: 1.4rem 0.6rem;
+    padding: 3.8rem 1rem;
   }
 
   .stay-intro {
-    padding: 1.2rem 0.7rem 1rem;
+    padding: 3.4rem 1rem 2.8rem;
   }
 
   .suite-cards {
     width: calc(100% - 1.2rem);
     grid-template-columns: minmax(0, 420px);
     justify-content: center;
-    padding-bottom: 1.8rem;
+    padding: 1.8rem 0 4rem;
   }
 
   .suite-cards-square {
@@ -174,7 +177,7 @@
   }
 
   .newsletter-block {
-    padding: 1.6rem 0.75rem;
+    padding: 4rem 1rem 3.4rem;
   }
 
   .newsletter-content {
@@ -193,13 +196,17 @@
   }
 
   .social-row {
-    padding: 1.9rem 0.75rem 1.6rem;
+    padding: 4rem 1rem 3.2rem;
   }
 
   .gem-footer {
-    margin-top: 0.4rem;
-    padding: 1.1rem 0.7rem 0.95rem;
+    margin-top: 1rem;
+    padding: 3rem 1rem 2.4rem;
     text-align: center;
+  }
+
+  .bottom-note {
+    padding: 1rem 0.9rem 1.35rem;
   }
 
   .gem-footer > div {
