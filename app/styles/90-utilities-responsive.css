@@ -59,7 +59,7 @@
   }
 
   .site-logo__image {
-    width: clamp(4.2rem, 22vw, 6.4rem);
+    width: clamp(5.8rem, 28.8vw, 8.6rem);
   }
 
   .hero-image {
@@ -295,7 +295,7 @@
   }
 
   .footer-logo {
-    width: clamp(7.2rem, 32vw, 10.5rem);
+    width: clamp(7.8rem, 35vw, 11.2rem);
   }
 
   .bottom-note {

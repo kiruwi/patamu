@@ -9,7 +9,6 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function HomeAnimations() {
   useGSAP(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobileViewport = window.matchMedia("(max-width: 700px)").matches;
     const outlineDrift = prefersReducedMotion ? 10 : 18;
     const outlineScrub = prefersReducedMotion ? 0.55 : 0.9;
     const bannerTextDrift = prefersReducedMotion ? 28 : 92;
@@ -129,7 +128,7 @@ export default function HomeAnimations() {
     const suitesTrack = suitesSection?.querySelector<HTMLElement>(".suite-track");
 
     if (suitesSection && suitesTrack) {
-      const suitesStart = isMobileViewport ? "center center" : "top top";
+      const suitesStart = "center center";
       const maxHorizontalShift = () =>
         Math.max(0, suitesTrack.scrollWidth - suitesSection.clientWidth);
 
