@@ -19,6 +19,7 @@
 .site-logo__image {
   width: clamp(12rem, 21.6vw, 18.6rem);
   height: auto;
+  opacity: 1;
 }
 
 .hero-content {
@@ -161,6 +162,7 @@
   width: clamp(8.8rem, 14.5vw, 13.8rem);
   height: auto;
   filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.55));
+  opacity: 1;
 }
 
 .top-mini-nav__logo--left {

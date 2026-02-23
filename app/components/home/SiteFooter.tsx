@@ -20,10 +20,10 @@ export default function SiteFooter() {
       </div>
 
       <div>
-        <a href="mailto:reservations@patamurestaurants.com">reservations@patamurestaurants.com</a>
         <a href="tel:+255620600100">+255 620 600 100</a>
         <a href="tel:+255767905078">+255 767 905 078</a>
         <a href="#">Karatu Town, Tanzania</a>
+        <a href="mailto:reservations@patamurestaurants.com">reservations@patamurestaurants.com</a>
       </div>
     </footer>
   );

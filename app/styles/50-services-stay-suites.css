@@ -70,11 +70,12 @@
 
 .suite-cards {
   position: relative;
+  display: flex;
+  align-items: center;
   overflow: hidden;
   width: 100%;
   margin: 0;
   padding: 1rem 0 2.2rem;
-  align-items: center;
 }
 
 .suite-track {
