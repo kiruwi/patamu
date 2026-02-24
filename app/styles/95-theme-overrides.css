@@ -105,3 +105,17 @@ html[data-theme="light"] .newsletter-form button {
   background: rgba(213, 178, 135, 0.9);
   color: #2f1f10;
 }
+
+@media (max-width: 700px) {
+  html[data-theme="light"] .hero-content {
+    background:
+      linear-gradient(180deg, rgba(7, 9, 13, 0.08) 30%, rgba(7, 9, 13, 0.9) 88%),
+      radial-gradient(100% 70% at 100% 0%, rgba(182, 145, 98, 0.1), transparent 60%);
+  }
+
+  html[data-theme="light"] .hero-content h1,
+  html[data-theme="light"] .hero-content p,
+  html[data-theme="light"] .hero-symbols {
+    color: #ffffff;
+  }
+}

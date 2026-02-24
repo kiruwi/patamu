@@ -108,6 +108,17 @@
     margin-bottom: 0;
   }
 
+  .top-mini-nav__controls,
+  .top-mini-nav__floating-controls {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 0.35rem;
+  }
+
+  .top-mini-nav__theme-toggle {
+    min-width: 8.2rem;
+  }
+
   .top-mini-nav__panel {
     grid-template-columns: 1fr;
     overflow-y: auto;
