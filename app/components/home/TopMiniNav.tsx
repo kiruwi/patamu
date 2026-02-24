@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import SiteLogo from "./SiteLogo";
 
+const THEME_STORAGE_KEY = "patamu-theme";
+
+type ThemeMode = "dark" | "light";
+
 const navLinks = [
   { href: "#welcome", label: "Welcome" },
   { href: "#restaurant", label: "Restaurant" },
@@ -14,12 +18,17 @@ const navLinks = [
 export default function TopMiniNav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [theme, setTheme] = useState<ThemeMode>("dark");
   const navRef = useRef<HTMLElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
-  const floatingToggleRef = useRef<HTMLButtonElement | null>(null);
+  const floatingControlsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
+
+    const root = document.documentElement;
+    const initialTheme: ThemeMode = root.dataset.theme === "light" ? "light" : "dark";
+    setTheme(initialTheme);
   }, []);
 
   useEffect(() => {
@@ -28,7 +37,7 @@ export default function TopMiniNav() {
       if (
         navRef.current?.contains(target) ||
         panelRef.current?.contains(target) ||
-        floatingToggleRef.current?.contains(target)
+        floatingControlsRef.current?.contains(target)
       ) {
         return;
       }
@@ -64,46 +73,92 @@ export default function TopMiniNav() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isMounted) {
+      return;
+    }
+
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
+    } catch {
+      // Ignore storage failures (private mode/restrictions).
+    }
+  }, [theme, isMounted]);
+
+  const switchTheme = () => {
+    setTheme((current) => (current === "light" ? "dark" : "light"));
+  };
+
+  const nextThemeLabel = theme === "light" ? "Dark" : "Light";
+  const nextThemeAriaLabel = theme === "light" ? "Switch to dark mode" : "Switch to light mode";
+
   return (
     <>
       <nav className={`top-mini-nav${isOpen ? " is-open" : ""}`} aria-label="Primary" ref={navRef}>
-        <button
-          className={`top-mini-nav__toggle top-mini-nav__toggle--anchor${isOpen ? " is-open" : ""}`}
-          type="button"
-          aria-expanded={isOpen}
-          aria-controls="top-mini-nav-links"
-          onClick={() => setIsOpen((open) => !open)}
-        >
-          <span className="sr-only">{isOpen ? "Close navigation menu" : "Open navigation menu"}</span>
-          <span className="top-mini-nav__icon" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-          <span className="top-mini-nav__text">Menu</span>
-        </button>
+        <div className="top-mini-nav__controls">
+          <button
+            className="top-mini-nav__theme-toggle"
+            type="button"
+            aria-label={nextThemeAriaLabel}
+            aria-pressed={theme === "light"}
+            onClick={switchTheme}
+          >
+            <span className="top-mini-nav__text">{nextThemeLabel}</span>
+          </button>
+
+          <button
+            className={`top-mini-nav__toggle top-mini-nav__toggle--anchor${isOpen ? " is-open" : ""}`}
+            type="button"
+            aria-expanded={isOpen}
+            aria-controls="top-mini-nav-links"
+            onClick={() => setIsOpen((open) => !open)}
+          >
+            <span className="sr-only">{isOpen ? "Close navigation menu" : "Open navigation menu"}</span>
+            <span className="top-mini-nav__icon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+            <span className="top-mini-nav__text">Menu</span>
+          </button>
+        </div>
       </nav>
 
       {isMounted &&
         isOpen &&
         createPortal(
           <>
-            <button
-              className="top-mini-nav__toggle top-mini-nav__toggle--floating is-open"
-              type="button"
-              aria-expanded={isOpen}
-              aria-controls="top-mini-nav-links"
-              onClick={() => setIsOpen(false)}
-              ref={floatingToggleRef}
-            >
-              <span className="sr-only">Close navigation menu</span>
-              <span className="top-mini-nav__icon" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </span>
-              <span className="top-mini-nav__text">Menu</span>
-            </button>
+            <div className="top-mini-nav__floating-controls" ref={floatingControlsRef}>
+              <button
+                className="top-mini-nav__theme-toggle top-mini-nav__theme-toggle--floating"
+                type="button"
+                aria-label={nextThemeAriaLabel}
+                aria-pressed={theme === "light"}
+                onClick={switchTheme}
+              >
+                <span className="top-mini-nav__text">{nextThemeLabel}</span>
+              </button>
+
+              <button
+                className="top-mini-nav__toggle top-mini-nav__toggle--floating is-open"
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls="top-mini-nav-links"
+                onClick={() => setIsOpen(false)}
+              >
+                <span className="sr-only">Close navigation menu</span>
+                <span className="top-mini-nav__icon" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </span>
+                <span className="top-mini-nav__text">Menu</span>
+              </button>
+            </div>
 
             <div
               className="top-mini-nav__panel is-open"

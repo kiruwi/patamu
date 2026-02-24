@@ -8,7 +8,7 @@ type SiteLogoProps = {
 export default function SiteLogo({ className, priority = false }: SiteLogoProps) {
   return (
     <Image
-      src="/images/logo.svg?v=4"
+      src="/images/logo.svg?v=6"
       alt="Patamu logo"
       width={300}
       height={120}

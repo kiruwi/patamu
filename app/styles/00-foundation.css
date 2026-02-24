@@ -3,6 +3,7 @@
   --ink: #f6f0e3;
   --muted: #d5c2a2;
   --gold: #b69162;
+  --gold-bright: #d9bb92;
   --gold-line: rgba(182, 145, 98, 0.34);
   --gold-soft-line: rgba(182, 145, 98, 0.2);
 }
@@ -21,8 +22,16 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
 body {
-  background: #08090d;
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: 19px;

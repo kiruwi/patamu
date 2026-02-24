@@ -40,7 +40,6 @@
 .feature-chip::before,
 .full-banner-media::before,
 .menu-photo::before,
-.suite-card::before,
 .newsletter-block::before,
 .social-grid > div::before {
   content: "";

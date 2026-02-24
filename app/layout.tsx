@@ -27,6 +27,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var key = "patamu-theme";
+                  var storedTheme = localStorage.getItem(key);
+                  var theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+                  document.documentElement.dataset.theme = theme;
+                  document.documentElement.style.colorScheme = theme;
+                } catch (error) {
+                  document.documentElement.dataset.theme = "dark";
+                  document.documentElement.style.colorScheme = "dark";
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>{children}</body>
     </html>
   );

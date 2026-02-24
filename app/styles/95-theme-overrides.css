@@ -1,0 +1,107 @@
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --ink: #312618;
+  --muted: #7a6545;
+  --gold-line: rgba(164, 127, 82, 0.34);
+  --gold-soft-line: rgba(164, 127, 82, 0.2);
+}
+
+html[data-theme="light"] .gem-shell {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .hero-content {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .top-mini-nav__panel {
+  background: #ffffff;
+}
+
+html[data-theme="light"] .top-mini-nav__right {
+  background:
+    linear-gradient(180deg, rgba(250, 244, 233, 0.96), rgba(243, 231, 211, 0.95)),
+    radial-gradient(100% 80% at 100% 0%, rgba(198, 156, 104, 0.18), transparent 56%);
+}
+
+html[data-theme="light"] .top-mini-nav__right address {
+  color: #493725;
+}
+
+html[data-theme="light"] .top-mini-nav__right > a {
+  color: #6d5233;
+}
+
+html[data-theme="light"] .top-mini-nav__right > a:hover,
+html[data-theme="light"] .top-mini-nav__right > a:focus-visible {
+  color: #3a2816;
+}
+
+html[data-theme="light"] .top-mini-nav__social a {
+  border-top-color: rgba(170, 132, 86, 0.45);
+  color: #8f6a3f;
+}
+
+html[data-theme="light"] .top-mini-nav__social a:hover,
+html[data-theme="light"] .top-mini-nav__social a:focus-visible {
+  color: #694623;
+}
+
+html[data-theme="light"] .top-mini-nav__cta {
+  border-color: rgba(190, 148, 95, 0.88);
+  background: rgba(217, 187, 146, 0.28);
+  color: #3b2815 !important;
+}
+
+html[data-theme="light"] .top-mini-nav__cta:hover,
+html[data-theme="light"] .top-mini-nav__cta:focus-visible {
+  border-color: rgba(188, 145, 89, 1);
+  background: rgba(217, 187, 146, 0.45);
+}
+
+html[data-theme="light"] .top-mini-nav__links a,
+html[data-theme="light"] .top-mini-nav__links a:hover,
+html[data-theme="light"] .top-mini-nav__links a:focus-visible,
+html[data-theme="light"] .full-banner h2,
+html[data-theme="light"] .full-banner p,
+html[data-theme="light"] .newsletter-content h2 {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .hero-content h1,
+html[data-theme="light"] .hero-content p,
+html[data-theme="light"] .feature-copy h2,
+html[data-theme="light"] .feature-copy p,
+html[data-theme="light"] .menu-list-wrap li,
+html[data-theme="light"] .stay-intro h2,
+html[data-theme="light"] .stay-intro p,
+html[data-theme="light"] .social-title h2,
+html[data-theme="light"] .gem-footer a,
+html[data-theme="light"] .bottom-note p {
+  color: #312618;
+}
+
+html[data-theme="light"] .hero-symbols {
+  color: #8c6a41;
+}
+
+html[data-theme="light"] .hero-content h1 span,
+html[data-theme="light"] .outline-band p {
+  -webkit-text-stroke: 1.1px rgba(160, 122, 78, 0.68);
+}
+
+html[data-theme="light"] .menu-list-wrap li {
+  border-bottom-color: rgba(168, 132, 87, 0.42);
+}
+
+html[data-theme="light"] .newsletter-form input,
+html[data-theme="light"] .newsletter-form button {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(157, 123, 81, 0.3);
+  color: #3b2815;
+}
+
+html[data-theme="light"] .newsletter-form button {
+  background: rgba(213, 178, 135, 0.9);
+  color: #2f1f10;
+}
