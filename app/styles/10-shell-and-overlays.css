@@ -19,7 +19,7 @@
   margin-left: calc(50% - 50vw);
   background:
     radial-gradient(120% 60% at 100% 0%, rgba(164, 124, 80, 0.13), transparent 45%),
-    linear-gradient(180deg, #090b10 0%, #090b10 100%);
+    linear-gradient(180deg, #151515 0%, #151515 100%);
   overflow-x: clip;
 }
 
@@ -46,4 +46,8 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(8, 9, 13, 0.08), rgba(8, 9, 13, 0.74));
+}
+
+.hero-image::before {
+  background: linear-gradient(180deg, rgba(21, 21, 21, 0.08), rgba(21, 21, 21, 0.74));
 }

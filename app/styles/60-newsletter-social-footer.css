@@ -41,7 +41,7 @@
 }
 
 .newsletter-form button {
-  background: rgba(183, 145, 96, 0.9);
+  background: var(--gold-bright);
   color: #0d0f14;
   font-weight: 700;
   cursor: pointer;
