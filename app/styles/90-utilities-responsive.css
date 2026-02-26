@@ -15,6 +15,12 @@
 }
 
 @media (max-width: 700px) {
+  :root {
+    --mobile-hero-top-offset: 0.75rem;
+    --mobile-hero-logo-size: clamp(5.8rem, 28.8vw, 8.6rem);
+    --mobile-nav-control-height: 2.7rem;
+  }
+
   .gem-shell {
     width: 100%;
     border-inline: 0;
@@ -53,13 +59,13 @@
   }
 
   .site-logo--hero {
-    top: 0.75rem;
+    top: var(--mobile-hero-top-offset);
     left: 0.7rem;
     transform: none;
   }
 
   .site-logo__image {
-    width: clamp(5.8rem, 28.8vw, 8.6rem);
+    width: var(--mobile-hero-logo-size);
   }
 
   .hero-image {
@@ -101,7 +107,9 @@
 
   .top-mini-nav {
     position: absolute;
-    top: 0.85rem;
+    top: calc(
+      var(--mobile-hero-top-offset) + (var(--mobile-hero-logo-size) - var(--mobile-nav-control-height)) / 2
+    );
     right: 0.75rem;
     align-self: auto;
     padding-inline-end: 0;
@@ -113,6 +121,13 @@
     flex-direction: column-reverse;
     align-items: flex-end;
     gap: 0.35rem;
+  }
+
+  .top-mini-nav__floating-controls {
+    top: calc(
+      var(--mobile-hero-top-offset) + (var(--mobile-hero-logo-size) - var(--mobile-nav-control-height)) / 2
+    );
+    right: 0.75rem;
   }
 
   .top-mini-nav__panel {
