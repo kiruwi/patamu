@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "Patamu Restaurant & Lodge | Karatu, Tanzania",
   description:
     "Authentic Tanzanian cuisine, bush hot lunches, and comfortable accommodation in Karatu Town.",
+  icons: {
+    icon: "/images/favicon.ico",
+    shortcut: "/images/favicon.ico",
+    apple: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({
