@@ -14,7 +14,7 @@
   line-height: 0.78;
   font-weight: 500;
   color: transparent;
-  -webkit-text-stroke: 1.1px rgba(182, 145, 98, 0.5);
+  -webkit-text-stroke: 1.1px var(--gold-bright);
   letter-spacing: 0.01em;
 }
 
