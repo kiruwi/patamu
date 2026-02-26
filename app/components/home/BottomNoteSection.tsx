@@ -6,7 +6,7 @@ export default function BottomNoteSection() {
   return (
     <section className="bottom-note">
       <p>
-        Copyright © {currentYear} Patamu Restaurants | Design by{" "}
+        Copyright © {currentYear} Patamu Restaurants | Design and development by{" "}
         <a href="https://iancheruiyot.work/" target="_blank" rel="noreferrer">
           Ian K Cheruiyot
         </a>
