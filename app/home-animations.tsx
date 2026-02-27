@@ -15,6 +15,7 @@ export default function HomeAnimations() {
     const bannerTextScrub = prefersReducedMotion ? 0.6 : 1.05;
     const servicesSplitDistance = prefersReducedMotion ? 26 : 130;
     const servicesVerticalShift = prefersReducedMotion ? 8 : 28;
+    const isDesktop = window.matchMedia("(min-width: 701px)").matches;
 
     const intro = gsap.timeline({
       defaults: { ease: prefersReducedMotion ? "power1.out" : "power3.out" },
@@ -74,53 +75,97 @@ export default function HomeAnimations() {
     const stayIntro = document.querySelector<HTMLElement>(".stay-intro");
 
     if (servicesSection && servicesList && servicesImage && stayIntro) {
-      gsap.set(stayIntro, {
-        autoAlpha: 0,
-        y: servicesVerticalShift,
-      });
-
-      gsap
-        .timeline({
+      gsap.fromTo(
+        servicesList,
+        {
+          autoAlpha: 0,
+          x: prefersReducedMotion ? 0 : -36,
+          y: prefersReducedMotion ? 0 : 14,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: prefersReducedMotion ? 0.4 : 0.75,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: servicesSection,
-            start: "top top",
-            end: prefersReducedMotion ? "+=40%" : "+=75%",
-            pin: true,
-            pinSpacing: false,
-            scrub: prefersReducedMotion ? 0.4 : 0.85,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
+            start: "top 82%",
+            once: true,
           },
-        })
-        .to(
-          servicesList,
-          {
-            x: -servicesSplitDistance,
-            y: -servicesVerticalShift,
-            autoAlpha: 0,
-            ease: "none",
+        },
+      );
+
+      gsap.fromTo(
+        servicesImage,
+        {
+          autoAlpha: 0,
+          x: prefersReducedMotion ? 0 : 36,
+          y: prefersReducedMotion ? 0 : 14,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: prefersReducedMotion ? 0.4 : 0.75,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top 82%",
+            once: true,
           },
-          0,
-        )
-        .to(
-          servicesImage,
-          {
-            x: servicesSplitDistance,
-            y: servicesVerticalShift,
-            autoAlpha: 0,
-            ease: "none",
-          },
-          0,
-        )
-        .to(
-          stayIntro,
-          {
-            autoAlpha: 1,
-            y: 0,
-            ease: "none",
-          },
-          0.15,
-        );
+        },
+      );
+
+      if (isDesktop) {
+        gsap.set(stayIntro, {
+          autoAlpha: 0,
+          y: servicesVerticalShift,
+        });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: servicesSection,
+              start: "top top",
+              end: prefersReducedMotion ? "+=40%" : "+=75%",
+              pin: true,
+              pinSpacing: false,
+              scrub: prefersReducedMotion ? 0.4 : 0.85,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+            },
+          })
+          .to(
+            servicesList,
+            {
+              x: -servicesSplitDistance,
+              y: -servicesVerticalShift,
+              autoAlpha: 0,
+              ease: "none",
+            },
+            0,
+          )
+          .to(
+            servicesImage,
+            {
+              x: servicesSplitDistance,
+              y: servicesVerticalShift,
+              autoAlpha: 0,
+              ease: "none",
+            },
+            0,
+          )
+          .to(
+            stayIntro,
+            {
+              autoAlpha: 1,
+              y: 0,
+              ease: "none",
+            },
+            0.15,
+          );
+      }
     }
 
     // Suites gallery: pin section and drive a right-to-left horizontal track.
@@ -206,11 +251,46 @@ export default function HomeAnimations() {
     // Lunch section: keep image static; move text over it.
     const diningMedia = document.querySelector<HTMLElement>(".full-banner-media.image-dining");
     if (diningMedia) {
-      gsap.set(diningMedia, { clearProps: "transform" });
+      gsap.set(diningMedia, {
+        scale: prefersReducedMotion ? 1 : 1.06,
+        yPercent: prefersReducedMotion ? 0 : 8,
+      });
+
+      gsap.to(diningMedia, {
+        scale: 1,
+        yPercent: prefersReducedMotion ? 0 : -8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".full-banner",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: prefersReducedMotion ? 0.35 : 0.9,
+          invalidateOnRefresh: true,
+        },
+      });
     }
 
     const diningCopy = document.querySelector<HTMLElement>(".full-banner-content");
     if (diningCopy) {
+      gsap.fromTo(
+        diningCopy,
+        {
+          autoAlpha: 0,
+          y: prefersReducedMotion ? 0 : 24,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: prefersReducedMotion ? 0.4 : 0.68,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".full-banner",
+            start: "top 82%",
+            once: true,
+          },
+        },
+      );
+
       gsap.set(diningCopy, { y: bannerTextDrift * 0.55 });
 
       gsap.to(diningCopy, {
@@ -261,14 +341,29 @@ export default function HomeAnimations() {
       });
     });
 
-    const refreshTriggers = () => ScrollTrigger.refresh();
+    const refreshTriggers = () => {
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    };
+    const refreshOnPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        refreshTriggers();
+      }
+    };
+
     window.addEventListener("load", refreshTriggers);
-    ScrollTrigger.refresh();
+    window.addEventListener("resize", refreshTriggers);
+    window.addEventListener("orientationchange", refreshTriggers);
+    window.addEventListener("pageshow", refreshOnPageShow);
+    void document.fonts?.ready?.then(refreshTriggers);
+    refreshTriggers();
 
     return () => {
       window.removeEventListener("load", refreshTriggers);
+      window.removeEventListener("resize", refreshTriggers);
+      window.removeEventListener("orientationchange", refreshTriggers);
+      window.removeEventListener("pageshow", refreshOnPageShow);
     };
-  });
+  }, { dependencies: [] });
 
   return null;
 }
