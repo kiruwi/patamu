@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import SmoothScrollProvider from "./smooth-scroll-provider";
 import "./globals.css";
 
 const displayFont = Cormorant_Garamond({
@@ -31,8 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
-      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>{children}</body>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
+      <body className={`${displayFont.variable} ${bodyFont.variable} antialiased`}>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }
