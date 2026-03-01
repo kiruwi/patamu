@@ -72,9 +72,51 @@
   gap: 0.4rem;
 }
 
-.social-grid > div {
+.social-grid > a {
   aspect-ratio: 1 / 1;
   min-height: 0;
+}
+
+.social-link {
+  display: block;
+  isolation: isolate;
+}
+
+.social-link__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(233, 207, 168, 0.72);
+  border-radius: 999px;
+  background: rgba(17, 18, 24, 0.55);
+  color: #f5e5c9;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.social-link__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.social-link:hover .social-link__icon,
+.social-link:focus-visible .social-link__icon {
+  transform: translate(-50%, -50%) scale(1.06);
+  border-color: rgba(245, 219, 179, 0.94);
+  background: rgba(17, 18, 24, 0.82);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid rgba(232, 192, 142, 0.9);
+  outline-offset: 2px;
 }
 
 .gem-footer {

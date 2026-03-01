@@ -29,7 +29,7 @@
 .menu-photo,
 .suite-card,
 .newsletter-block,
-.social-grid > div {
+.social-grid > a {
   position: relative;
   overflow: hidden;
   background-position: center;
@@ -41,7 +41,7 @@
 .full-banner-media::before,
 .menu-photo::before,
 .newsletter-block::before,
-.social-grid > div::before {
+.social-grid > a::before {
   content: "";
   position: absolute;
   inset: 0;
