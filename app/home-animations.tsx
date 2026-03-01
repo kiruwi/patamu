@@ -74,7 +74,7 @@ export default function HomeAnimations() {
     const servicesImage = servicesSection?.querySelector<HTMLElement>(".menu-photo");
     const stayIntro = document.querySelector<HTMLElement>(".stay-intro");
 
-    if (servicesSection && servicesList && servicesImage && stayIntro) {
+    if (servicesSection && servicesList && stayIntro) {
       gsap.fromTo(
         servicesList,
         {
@@ -96,28 +96,30 @@ export default function HomeAnimations() {
         },
       );
 
-      gsap.fromTo(
-        servicesImage,
-        {
-          autoAlpha: 0,
-          x: prefersReducedMotion ? 0 : 36,
-          y: prefersReducedMotion ? 0 : 14,
-        },
-        {
-          autoAlpha: 1,
-          x: 0,
-          y: 0,
-          duration: prefersReducedMotion ? 0.4 : 0.75,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top 82%",
-            once: true,
+      if (servicesImage) {
+        gsap.fromTo(
+          servicesImage,
+          {
+            autoAlpha: 0,
+            x: prefersReducedMotion ? 0 : 36,
+            y: prefersReducedMotion ? 0 : 14,
           },
-        },
-      );
+          {
+            autoAlpha: 1,
+            x: 0,
+            y: 0,
+            duration: prefersReducedMotion ? 0.4 : 0.75,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: servicesSection,
+              start: "top 82%",
+              once: true,
+            },
+          },
+        );
+      }
 
-      if (isDesktop) {
+      if (isDesktop && servicesImage) {
         gsap.set(stayIntro, {
           autoAlpha: 0,
           y: servicesVerticalShift,
@@ -164,6 +166,40 @@ export default function HomeAnimations() {
               ease: "none",
             },
             0.15,
+          );
+      } else {
+        gsap.set(stayIntro, {
+          autoAlpha: 0,
+          y: servicesVerticalShift,
+        });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: stayIntro,
+              start: "top 96%",
+              end: "top 56%",
+              scrub: prefersReducedMotion ? 0.25 : 0.6,
+              invalidateOnRefresh: true,
+            },
+          })
+          .to(
+            servicesList,
+            {
+              y: -servicesVerticalShift,
+              autoAlpha: 0.2,
+              ease: "none",
+            },
+            0,
+          )
+          .to(
+            stayIntro,
+            {
+              autoAlpha: 1,
+              y: 0,
+              ease: "none",
+            },
+            0,
           );
       }
     }

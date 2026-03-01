@@ -6,6 +6,7 @@
   --gold-bright: #d9bb92;
   --gold-line: rgba(182, 145, 98, 0.34);
   --gold-soft-line: rgba(182, 145, 98, 0.2);
+  --text-stroke-width: 1.1px;
 }
 
 *,
