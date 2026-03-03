@@ -7,6 +7,7 @@ import SiteLogo from "./SiteLogo";
 const navLinks = [
   { href: "#welcome", label: "Welcome" },
   { href: "#restaurant", label: "Restaurant" },
+  { href: "/menu", label: "Menu" },
   { href: "#accommodation", label: "Stay" },
   { href: "#contact", label: "Contact" },
 ];
