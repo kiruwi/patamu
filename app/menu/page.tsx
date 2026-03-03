@@ -20,6 +20,9 @@ type MenuCategory = {
   groups: MenuGroup[];
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.patamurestaurants.com";
+const MENU_URL = `${SITE_URL}/menu`;
+
 export const metadata: Metadata = {
   title: "Patamu Restaurant Menu | Patamu Restaurant & Lodge",
   description:
@@ -197,6 +200,36 @@ const menuCategories: MenuCategory[] = [
   },
 ];
 
+const toNumericPrice = (price: string) => price.replace(/,/g, "");
+
+const menuStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": `${MENU_URL}#menu`,
+  url: MENU_URL,
+  inLanguage: "en",
+  name: "Patamu Restaurant Menu",
+  description: "Freshly prepared African and international dishes. All prices in TSH.",
+  hasMenuSection: menuCategories.map((category) => ({
+    "@type": "MenuSection",
+    name: category.title,
+    hasMenuSection: category.groups.map((group) => ({
+      "@type": "MenuSection",
+      name: group.title,
+      ...(group.note ? { description: group.note } : {}),
+      hasMenuItem: group.items.map((item) => ({
+        "@type": "MenuItem",
+        name: item.name,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "TZS",
+          price: toNumericPrice(item.price),
+        },
+      })),
+    })),
+  })),
+};
+
 function MenuGroupView({ group }: { group: MenuGroup }) {
   if (group.layout === "lines") {
     return (
@@ -240,8 +273,11 @@ function MenuGroupView({ group }: { group: MenuGroup }) {
 }
 
 export default function MenuPage() {
+  const menuStructuredDataJson = JSON.stringify(menuStructuredData).replace(/</g, "\\u003c");
+
   return (
     <main className="restaurant-menu-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: menuStructuredDataJson }} />
       <div className="restaurant-menu-shell">
         <header className="restaurant-menu-header">
           <Link href="/" className="restaurant-menu-home">
