@@ -18,6 +18,7 @@
   :root {
     --mobile-rating-banner-height: 2.25rem;
     --mobile-hero-top-offset: calc(var(--mobile-rating-banner-height) + 0.5rem);
+    --mobile-hero-logo-extra-offset: 0.45rem;
     --mobile-hero-logo-size: clamp(5.8rem, 28.8vw, 8.6rem);
     --mobile-nav-control-height: 2.7rem;
     --text-stroke-width: 0.55px;
@@ -61,7 +62,7 @@
   }
 
   .site-logo--hero {
-    top: var(--mobile-hero-top-offset);
+    top: calc(var(--mobile-hero-top-offset) + var(--mobile-hero-logo-extra-offset));
     left: 0.7rem;
     transform: none;
   }
