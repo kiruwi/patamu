@@ -23,15 +23,15 @@ type MenuCategory = {
 export const metadata: Metadata = {
   title: "Patamu Restaurant Menu | Patamu Restaurant & Lodge",
   description:
-    "Freshly prepared African and international dishes at Patamu Restaurant. All prices in TSHS.",
+    "Freshly prepared African and international dishes at Patamu Restaurant. All prices in TSH.",
 };
 
 const menuCategories: MenuCategory[] = [
   {
     title: "Starters",
     image:
-      "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Fresh zucchini soup with herbs and cream.",
+      "https://images.unsplash.com/photo-1672636401816-5baecca0d8d4?auto=format&fit=crop&w=1600&q=80",
+    imageAlt: "Fresh avocado salad served in a bowl.",
     groups: [
       {
         title: "Soup",
@@ -52,8 +52,8 @@ const menuCategories: MenuCategory[] = [
   {
     title: "Desserts",
     image:
-      "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Chocolate mousse dessert served in a glass.",
+      "https://images.unsplash.com/photo-1555411093-7440ae076e89?auto=format&fit=crop&w=1600&q=80",
+    imageAlt: "Fresh fruit salad served in a bowl.",
     groups: [
       {
         title: "Desserts",
@@ -206,7 +206,7 @@ function MenuGroupView({ group }: { group: MenuGroup }) {
           {group.items.map((item) => (
             <li key={item.name}>
               <span>{item.name}</span>
-              <span>TSHS {item.price}</span>
+              <span>TSH {item.price}</span>
             </li>
           ))}
         </ul>
@@ -229,7 +229,7 @@ function MenuGroupView({ group }: { group: MenuGroup }) {
           {group.items.map((item) => (
             <tr key={item.name}>
               <td>{item.name}</td>
-              <td>TSHS {item.price}</td>
+              <td>TSH {item.price}</td>
             </tr>
           ))}
         </tbody>
@@ -247,9 +247,11 @@ export default function MenuPage() {
           <Link href="/" className="restaurant-menu-home">
             Back to home
           </Link>
-          <h1>Patamu Restaurant Menu</h1>
-          <p>Freshly prepared African and international dishes.</p>
-          <p>All prices in TSHS.</p>
+          <div className="restaurant-menu-intro">
+            <h1>Patamu Restaurant Menu</h1>
+            <p>Freshly prepared African and international dishes.</p>
+            <p>All prices in TSH.</p>
+          </div>
         </header>
 
         {menuCategories.map((category) => (

@@ -19,6 +19,17 @@
   border-bottom: 1px solid rgba(217, 187, 146, 0.3);
 }
 
+.restaurant-menu-intro {
+  width: min(920px, 100%);
+  margin: 0.9rem auto 0;
+  text-align: center;
+}
+
+.restaurant-menu-intro h1,
+.restaurant-menu-intro p {
+  text-align: center;
+}
+
 .restaurant-menu-home {
   display: inline-flex;
   align-items: center;
@@ -39,7 +50,7 @@
   font-size: 1rem;
 }
 
-.restaurant-menu-header h1 {
+.restaurant-menu-intro h1 {
   margin: 0.55rem 0 0;
   font-family: var(--font-display), "Times New Roman", serif;
   font-size: clamp(2.4rem, 5.6vw, 4.2rem);
@@ -47,7 +58,7 @@
   color: #fff;
 }
 
-.restaurant-menu-header p {
+.restaurant-menu-intro p {
   margin: 0.62rem 0 0;
   font-size: 1.03rem;
   color: #e5d6bf;
