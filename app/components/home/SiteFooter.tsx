@@ -4,7 +4,7 @@ export default function SiteFooter() {
   return (
     <footer className="gem-footer reveal">
       <div>
-        <a href="#restaurant">Menu</a>
+        <a href="/menu">Menu</a>
         <a href="#accommodation">Stay</a>
         <a href="#welcome">Story</a>
         <a href="#contact">Contact</a>
