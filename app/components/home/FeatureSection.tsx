@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function FeatureSection() {
   return (
     <section className="feature-row reveal" id="welcome">
@@ -12,6 +14,9 @@ export default function FeatureSection() {
         <p>
           We offer great variety and creativity in our menu, with high quality of our food and generous portions. Our restaurant serves traditional African delicacies from all corners of Tanzania, which are prepared with passion. We offer a style and taste of food to suit every palate.Patamu Restaurant The warm hospitality of our staff, combined with the ambience of our restaurants and bar, will ensure you a memorable dining experience time and time again.
         </p>
+        <Link href="/menu" className="feature-menu-button">
+          View our menu
+        </Link>
       </article>
 
       <article className="feature-chip image-lamp" aria-hidden="true" />

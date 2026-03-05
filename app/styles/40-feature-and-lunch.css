@@ -30,6 +30,27 @@
   text-wrap: initial;
 }
 
+.feature-menu-button {
+  display: inline-block;
+  margin: 1.1rem auto 0;
+  padding: 0.72rem 1.6rem;
+  border: 1px solid var(--gold-bright);
+  border-radius: 0;
+  background: var(--gold-bright);
+  color: #131313;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: filter 180ms ease;
+}
+
+.feature-menu-button:hover,
+.feature-menu-button:focus-visible {
+  filter: brightness(0.94);
+  color: #131313;
+}
+
 .feature-copy p {
   margin: 0.65rem auto 0;
   max-width: 55ch;
