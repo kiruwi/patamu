@@ -75,33 +75,12 @@ export default function HomeAnimations() {
     const stayIntro = document.querySelector<HTMLElement>(".stay-intro");
 
     if (servicesSection && servicesList && stayIntro) {
-      gsap.fromTo(
-        servicesList,
-        {
-          autoAlpha: 0,
-          x: prefersReducedMotion ? 0 : -36,
-          y: prefersReducedMotion ? 0 : 14,
-        },
-        {
-          autoAlpha: 1,
-          x: 0,
-          y: 0,
-          duration: prefersReducedMotion ? 0.4 : 0.75,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: "top 82%",
-            once: true,
-          },
-        },
-      );
-
-      if (servicesImage) {
+      if (isDesktop) {
         gsap.fromTo(
-          servicesImage,
+          servicesList,
           {
             autoAlpha: 0,
-            x: prefersReducedMotion ? 0 : 36,
+            x: prefersReducedMotion ? 0 : -36,
             y: prefersReducedMotion ? 0 : 14,
           },
           {
@@ -117,6 +96,36 @@ export default function HomeAnimations() {
             },
           },
         );
+
+        if (servicesImage) {
+          gsap.fromTo(
+            servicesImage,
+            {
+              autoAlpha: 0,
+              x: prefersReducedMotion ? 0 : 36,
+              y: prefersReducedMotion ? 0 : 14,
+            },
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              duration: prefersReducedMotion ? 0.4 : 0.75,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: servicesSection,
+                start: "top 82%",
+                once: true,
+              },
+            },
+          );
+        }
+      } else {
+        // Keep mobile deterministic in production: start visible before the handoff fade-out.
+        gsap.set(servicesList, {
+          autoAlpha: 1,
+          y: 0,
+          x: 0,
+        });
       }
 
       if (isDesktop && servicesImage) {
@@ -183,8 +192,12 @@ export default function HomeAnimations() {
               invalidateOnRefresh: true,
             },
           })
-          .to(
+          .fromTo(
             servicesList,
+            {
+              y: 0,
+              autoAlpha: 1,
+            },
             {
               y: -servicesVerticalShift,
               autoAlpha: 0.2,
@@ -192,8 +205,12 @@ export default function HomeAnimations() {
             },
             0,
           )
-          .to(
+          .fromTo(
             stayIntro,
+            {
+              autoAlpha: 0,
+              y: servicesVerticalShift,
+            },
             {
               autoAlpha: 1,
               y: 0,

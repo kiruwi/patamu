@@ -11,7 +11,12 @@ type SmoothScrollProviderProps = {
 export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    const isTouchOrMobile =
+      window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(max-width: 700px)").matches;
+
+    // Mobile/touch uses native scrolling to avoid sticky/jumpy behavior
+    // with long GSAP scenes in production builds.
+    if (prefersReducedMotion || isTouchOrMobile) {
       return;
     }
 
