@@ -5,7 +5,6 @@ import {
   FeatureSection,
   HeroSection,
   LunchInTheWildSection,
-  NewsletterSection,
   ServicesSection,
   SiteFooter,
   SocialSection,
@@ -36,8 +35,6 @@ export default function Home() {
       <StayIntroSection />
 
       <SuitesSection items={suiteCards} />
-
-      <NewsletterSection />
 
       <SocialSection />
 

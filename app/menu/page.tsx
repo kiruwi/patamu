@@ -119,8 +119,8 @@ const menuCategories: MenuCategory[] = [
   {
     title: "Pizza",
     image:
-      "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80",
-    imageAlt: "Freshly baked pizza topped with basil and cheese.",
+      "https://images.unsplash.com/photo-1566222499048-9538f86d4675?auto=format&fit=crop&w=1600&q=80",
+    imageAlt: "Rustic sliced pizza in a casual bakery-style setting.",
     groups: [
       {
         title: "Pizza",

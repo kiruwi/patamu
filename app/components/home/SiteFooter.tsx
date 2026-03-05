@@ -2,7 +2,7 @@ import SiteLogo from "./SiteLogo";
 
 export default function SiteFooter() {
   return (
-    <footer className="gem-footer reveal">
+    <footer className="gem-footer reveal" id="contact">
       <div>
         <a href="/menu">Menu</a>
         <a href="#accommodation">Stay</a>
@@ -24,6 +24,7 @@ export default function SiteFooter() {
         <a href="tel:+255762413810">+255 762 413 810</a>
         <a href="#">Karatu Town, Tanzania</a>
         <a href="mailto:reservations@patamurestaurants.com">reservations@patamurestaurants.com</a>
+        <a href="mailto:sales@patamurestaurants.com">sales@patamurestaurants.com</a>
       </div>
     </footer>
   );

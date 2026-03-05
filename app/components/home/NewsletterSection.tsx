@@ -1,4 +1,5 @@
 export default function NewsletterSection() {
+  /*
   return (
     <section className="newsletter-block image-plan reveal" id="contact">
       <div className="newsletter-content">
@@ -13,4 +14,6 @@ export default function NewsletterSection() {
       </div>
     </section>
   );
+  */
+  return null;
 }
