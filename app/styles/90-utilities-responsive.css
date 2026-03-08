@@ -21,7 +21,6 @@
     --mobile-hero-logo-extra-offset: 0.45rem;
     --mobile-hero-logo-size: clamp(5.8rem, 28.8vw, 8.6rem);
     --mobile-nav-control-height: 2.7rem;
-    --text-stroke-width: 0.55px;
   }
 
   .gem-shell {

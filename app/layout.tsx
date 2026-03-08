@@ -49,7 +49,7 @@ const structuredData = {
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: 4.2,
-        reviewCount: 93,
+        reviewCount: 94,
       },
       hasMenu: `${SITE_URL}/menu`,
       sameAs: ["https://www.instagram.com/patamu_lodge/"],

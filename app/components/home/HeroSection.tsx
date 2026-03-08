@@ -12,7 +12,7 @@ export default function HeroSection() {
         href={googleReviewsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="View Patamu Restaurant and Lodge Google rating of 4.2 from 93 reviews"
+        aria-label="View Patamu Restaurant and Lodge Google rating of 4.2 from 94 reviews"
       >
         <span className="hero-global-rating__google" aria-hidden="true">
           <svg viewBox="0 0 533.5 544.3" role="presentation" focusable="false">
@@ -35,7 +35,7 @@ export default function HeroSection() {
           </svg>
         </span>
         <span className="hero-global-rating__text">
-          <strong>4.2</strong> on Google from <strong>93 reviews</strong>
+          <strong>4.2</strong> on Google from <strong>94 reviews</strong>
         </span>
         <span className="hero-global-rating__stars" aria-hidden="true">
           ★★★★☆
